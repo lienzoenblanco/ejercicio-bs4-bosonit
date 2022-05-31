@@ -13,6 +13,9 @@ public class Controller {
     @Value("${My.VAR2}")
     private int myVar2;
 
+    @Value("${VAR3:var3 no tiene valor}")
+    private String var3;
+
     @GetMapping("/valores/")
     public String getProperties() {
         return "valor de var1 es: "+this.var1+ "valor de my.var2 es: "+this.myVar2;
@@ -20,7 +23,6 @@ public class Controller {
 
     @GetMapping("/var3/")
     public String getVar3() {
-        String var3 = "var3 no tiene valor";
-        return "valor de var3 es: " +var3;
+        return "valor de var3 es: " +this.var3;
     }
 }
